@@ -6,8 +6,6 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-api.interceptors.request.use((config) => config, (err) => Promise.reject(err));
-
 api.interceptors.response.use(
   (res) => res.data,
   (err) => {
