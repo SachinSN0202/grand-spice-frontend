@@ -3,9 +3,11 @@
  */
 import axios from 'axios';
 
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://grand-spice-backend.onrender.com/api';
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
-  timeout: 10000,
+  baseURL: BACKEND_URL,
+  timeout: 15000,
   headers: { 'Content-Type': 'application/json' },
 });
 
