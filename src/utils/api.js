@@ -1,20 +1,13 @@
-/**
- * Centralized Axios API utility
- */
 import axios from 'axios';
 
-const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://grand-spice-backend.onrender.com/api';
-
 const api = axios.create({
-  baseURL: BACKEND_URL,
+  baseURL: 'https://grand-spice-backend.onrender.com/api',
   timeout: 15000,
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Request interceptor
 api.interceptors.request.use((config) => config, (err) => Promise.reject(err));
 
-// Response interceptor — unwrap .data
 api.interceptors.response.use(
   (res) => res.data,
   (err) => {
@@ -23,7 +16,6 @@ api.interceptors.response.use(
   }
 );
 
-// ── API methods ────────────────────────────────────────────────────────────
 export const menuAPI = {
   getAll: () => api.get('/menu'),
   getByCategory: (cat) => api.get(`/menu/category/${encodeURIComponent(cat)}`),

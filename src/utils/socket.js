@@ -1,8 +1,6 @@
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || 'https://grand-spice-backend.onrender.com';
-
-const socket = io(SOCKET_URL, {
+const socket = io('https://grand-spice-backend.onrender.com', {
   autoConnect: true,
   reconnection: true,
   reconnectionDelay: 1000,
