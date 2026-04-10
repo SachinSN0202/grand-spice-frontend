@@ -1,3 +1,4 @@
+// v2 - direct backend url
 import axios from 'axios';
 
 const api = axios.create({
